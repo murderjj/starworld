@@ -1,0 +1,139 @@
+function commandsbuttonfunction()
+    print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+    print(">supermute (all, others, me)")
+    print(">unsupermute (all, others, me)")
+    print(">supermute  'plr name'")
+    print(">unsupermute  'plr name'")
+    print(">re")
+    print(">goto 'plr name'")
+	print("")
+	print("this is a WIP, expect more soon.")
+	print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+end
+
+commandsbindable = Instance.new("BindableFunction")
+commandsbindable.OnInvoke = commandsbuttonfunction
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "STARWORLD";
+    Text = "Welcome to starworld";
+    Icon = "";
+    Duration = 7;
+    Callback = commandsbindable;
+    Button1 = "Print cmds (F9)";
+})
+
+--]]
+
+local ME = game:GetService("Players").LocalPlayer
+local function FindPlayer(plr)
+   local Found = {}
+   if tostring(plr):lower() == ("me") then
+       table.insert(Found, ME)
+       return Found
+   elseif tostring(plr):lower() == ("all") then
+       for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+           table.insert(Found, game:GetService("Players")[v.Name])
+       end
+       return Found
+   elseif tostring(plr):lower() == ("others") then
+       for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+           if v.Name ~= ME.Name then
+               table.insert(Found, game:GetService("Players")[v.Name])
+           end
+       end
+       return Found
+   elseif tostring(plr):lower() == ("random") then
+       table.insert(Found, game:GetService("Players"):GetPlayers()[math.random(1, #game:GetService("Players"):GetPlayers())])
+       return Found
+   else
+       for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+           if string.sub(v.Name, 1, #tostring(plr):lower()):lower() == tostring(plr):lower() then
+               table.insert(Found, game:GetService("Players")[v.Name])
+           end
+       end
+       return Found
+   end
+   return Found
+end
+
+
+_G.glitch = false
+local prefix = ">"
+_G.loopX891KGPHLGLLXL0s0h = false
+ME.Chatted:Connect(function(msg)
+   if string.sub(msg, 1, 6) == prefix.."re" then
+       for _, v in pairs(FindPlayer(string.sub(msg, 7))) do
+ game.Players.LocalPlayer.Character.Humanoid.Name = 1
+local l = game.Players.LocalPlayer.Character["1"]:Clone()
+l.Parent = game.Players.LocalPlayer.Character
+l.Name = "Humanoid"
+wait()
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled = true
+wait()
+game.Players.LocalPlayer.Character.Animate.Disabled = false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType = "None"
+wait()
+Location = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait()
+local prt = Instance.new("Model", workspace);
+Instance.new("Part", prt).Name="Torso";
+Instance.new("Part", prt).Name="Head";
+Instance.new("Humanoid", prt).Name="Humanoid";
+game.Players.LocalPlayer.Character=prt
+wait(6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Location
+               end
+           end
+       end)
+
+ME.Chatted:Connect(function(msg)
+   if string.sub(msg, 1, 11) == prefix.."supermute " then
+       for _, v in pairs(FindPlayer(string.sub(msg, 12))) do
+           if v:FindFirstChild("bad_MutedNoob") then
+               v["bad_MutedNoob"]:Destroy()
+           end
+
+           wait(0.1)
+           local value = Instance.new("BoolValue",v)
+           value.Name = "bad_MutedNoob"
+       end
+   end
+end)
+
+ME.Chatted:Connect(function(msg)
+   if string.sub(msg, 1, 13) == prefix.."unsupermute " then
+       for _, v in pairs(FindPlayer(string.sub(msg, 14))) do
+           if v:FindFirstChild("bad_MutedNoob") then
+               v:FindFirstChild("bad_MutedNoob"):Destroy()
+           end
+       end
+   end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if msg:sub(1, 6) == ">goto " then
+    local player
+    for i, plr in ipairs(game.Players:GetPlayers()) do
+    if string.lower(plr.Name):sub(1, string.len(msg:sub(7))) == string.lower(msg:sub(7)) then
+        player = plr.Name
+    end
+    end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[player].HumanoidRootPart.CFrame
+end
+end)
+
+
+while game:GetService("RunService").Heartbeat:wait() do
+   for i,v in next, game:GetService("Players"):GetPlayers() do
+       if v:FindFirstChild("bad_MutedNoob") then
+           for i,v in pairs(v.Character:GetDescendants()) do
+              if v:IsA("Tool") and v.Name == "BoomBox" then
+                  v.Handle.Sound.Playing = false
+              end
+              end
+       end
+   end
+end
