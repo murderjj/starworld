@@ -1,24 +1,3 @@
---[[
-
-update log:
------ 10/25/2021 -----
-released
------ 10/26/2021 -----
-removed "removegearmesh" because it wasnt functional
------ 10/27/2021 -----
-added "goto"
------ 10/28/2021 -----
-changed prefix from "," to ">"
------ 10/29/2021 -----
-changed cmd order because "re" wasnt working until another cmd was said
------ 10/30/2021 -----
-removed the loading message on execution and replaced it with a popup
------ 10/30/2021 -----
-omg 2 updat 1 day?!?!?!
-changed prefix from ">" to "/"
-
---]]
-
 function commandsbuttonfunction()
     print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
     print("/supermute (all, others, me)")
