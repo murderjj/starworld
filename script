@@ -1,3 +1,14 @@
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('Loading...',"All")
+local player = game:GetService("Players").LocalPlayer
+wait(2)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('Welcome to starworld, '.. player.Name,"All")
+wait(1)
+local StarterGui = game:GetService("StarterGui")
+StarterGui:SetCore("ChatMakeSystemMessage",
+{Text = "Prefix is /, for help join discord.gg/QVq7qea64b";
+Color = Color3.fromRGB(50, 50, 50);
+Font = Enum.Font.SourceSansBold;TextSize = 25})
+
 local plr = game:GetService("Players").LocalPlayer
 local charr = game:GetService("Players").LocalPlayer.Character
 local players = game:GetService("Players"):GetPlayers()
@@ -255,4 +266,3 @@ while game:GetService("RunService").Heartbeat:wait() do
        end
    end
 end
-
