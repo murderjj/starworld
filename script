@@ -85,6 +85,8 @@ plr.Chatted:connect(function(message)
         end
          
     end
+    
+
 
     if message:sub(1,4) == "/off" then
         for _,v in pairs(game.Players:GetPlayers()) do
@@ -190,10 +192,8 @@ Instance.new("Part", prt).Name="Torso";
 Instance.new("Part", prt).Name="Head";
 Instance.new("Humanoid", prt).Name="Humanoid";
 game.Players.LocalPlayer.Character=prt
-        charr:BreakJoints()
 wait(6)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Location
-
                end
            end
        end)
@@ -246,71 +246,3 @@ while game:GetService("RunService").Heartbeat:wait() do
        end
    end
 end
-
-local Player = game.Players.LocalPlayer
-local plr = Player
-local Character = plr.Character
-local char = Character
-local getto = char:GetChildren()
-local bacpac = plr.Backpack
-local backpacko = bacpac:GetChildren()
-local radios = {}
-
-for k in pairs(radios) do
-    radios[k] = nil
-end
-
-function justdoit(robuxo, rabaxo, tabelo)
-    for _, radz in pairs(robuxo) do
-        if radz:IsA("Tool") then
-            if radz.Handle:FindFirstChild("Sound") then
-                table.insert(tabelo, radz.Handle)
-            end
-        end
-    end
-    for _, radz in pairs(rabaxo) do
-        if radz:IsA("Tool") then
-            if radz.Handle:FindFirstChild("Sound") then
-                table.insert(tabelo, radz.Handle)
-            end
-        end
-    end
-end
-
-function play(radzs)
-    spawn(
-        function()
-            for i, v in pairs(radios) do
-                if v.Sound.Playing == false then
-                    v.Sound.Playing = true
-                end
-            end
-        end
-    )
-end
-
-justdoit(getto, backpacko, radios)
-
-ME.Chatted:Connect(function(msg)
-   if string.sub(msg, 1, 21) == prefix.."sync" then
-       for _, v in pairs(FindPlayer(string.sub(msg, 22))) do
-        play(radios)
-        
-        for i = 1, #radios do
-            repeat wait() until radios[i].Sound.IsLoaded
-        end
-        
-        spawn(
-            function()
-                for i = 1, #radios do
-                    spawn(
-                        function()
-                    		radios[i].Sound.TimePosition = 0
-                        end
-                    )
-                end
-            end
-        )
-       end
-end
-end)
