@@ -172,8 +172,7 @@ local prefix = "/"
 _G.loopX891KGPHLGLLXL0s0h = false
 ME.Chatted:Connect(function(msg)
    if string.sub(msg, 1, 6) == prefix.."re" then
-       for _, v in pairs(FindPlayer(string.sub(msg, 7))) do
- game.Players.LocalPlayer.Character.Humanoid.Name = 1
+         game.Players.LocalPlayer.Character.Humanoid.Name = 1
 local l = game.Players.LocalPlayer.Character["1"]:Clone()
 l.Parent = game.Players.LocalPlayer.Character
 l.Name = "Humanoid"
@@ -192,12 +191,11 @@ Instance.new("Part", prt).Name="Torso";
 Instance.new("Part", prt).Name="Head";
 Instance.new("Humanoid", prt).Name="Humanoid";
 game.Players.LocalPlayer.Character=prt
+        charr:BreakJoints()
 wait(6)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Location
                end
-           end
-       end)
-
+           end)
 ME.Chatted:Connect(function(msg)
    if string.sub(msg, 1, 11) == prefix.."supermute " then
        for _, v in pairs(FindPlayer(string.sub(msg, 12))) do
