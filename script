@@ -85,10 +85,6 @@ plr.Chatted:connect(function(message)
         end
          
     end
-    
-    if message:sub(1,3) == "/re" then
-        charr:BreakJoints()
-    end
 
     if message:sub(1,4) == "/off" then
         for _,v in pairs(game.Players:GetPlayers()) do
@@ -194,8 +190,10 @@ Instance.new("Part", prt).Name="Torso";
 Instance.new("Part", prt).Name="Head";
 Instance.new("Humanoid", prt).Name="Humanoid";
 game.Players.LocalPlayer.Character=prt
+        charr:BreakJoints()
 wait(6)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Location
+
                end
            end
        end)
