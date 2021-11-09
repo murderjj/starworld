@@ -1,20 +1,9 @@
-local function CreateInstance(cls,props)
-local inst = Instance.new(cls)
-for i,v in pairs(props) do
-	inst[i] = v
-end
-return inst
-end
-	
-local PopupUI = CreateInstance('ScreenGui',{DisplayOrder=0,Enabled=true,ResetOnSpawn=true,Name='PopupUI', Parent=game.CoreGui})
-local Main = CreateInstance('Frame',{Style=Enum.FrameStyle.Custom,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.384314, 0.384314, 0.384314),BackgroundTransparency=0.20000000298023,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0.40265587, 0, 0.31533742, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 373, 0, 301),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=2,Name = 'Main',Parent = PopupUI})
-local Welcome = CreateInstance('TextLabel',{Font=Enum.Font.Bangers,FontSize=Enum.FontSize.Size36,Text='Welcome to starworld!',TextColor3=Color3.new(0, 0, 0),TextScaled=false,TextSize=33,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=false,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(1, 1, 1),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0.0664451793, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 373, 0, 94),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=7,Name='Welcome',Parent = Main})
-local MadeBy = CreateInstance('TextLabel',{Font=Enum.Font.Bangers,FontSize=Enum.FontSize.Size24,Text='Made by underworld#9517',TextColor3=Color3.new(0, 0, 0),TextScaled=false,TextSize=23,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=false,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(1, 1, 1),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0.34219268, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 373, 0, 94),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=8,Name='MadeBy',Parent = Main})
-local MadeBy = CreateInstance('TextLabel',{Font=Enum.Font.Bangers,FontSize=Enum.FontSize.Size24,Text='POTIONSTEALAH/potion',TextColor3=Color3.new(0, 0, 0),TextScaled=false,TextSize=23,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=false,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(1, 1, 1),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0.478405297, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 373, 0, 94),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=6,Name='MadeBy',Parent = Main})
-local Help = CreateInstance('TextLabel',{Font=Enum.Font.Bangers,FontSize=Enum.FontSize.Size24,Text='Type /cmds for the commands!',TextColor3=Color3.new(0, 0, 0),TextScaled=false,TextSize=22,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=false,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(1, 1, 1),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0.687707603, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 373, 0, 94),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=5,Name='Help',Parent = Main})
-local Background = CreateInstance('Frame',{Style=Enum.FrameStyle.Custom,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0, 0, 0),BackgroundTransparency=0.20000000298023,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=0,ClipsDescendants=false,Draggable=false,Position=UDim2.new(-0.027105689, 0, -0.034575969, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 393, 0, 320),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name = 'Background',Parent = Main})
-wait(5)
-PopupUI:remove()
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('Loading...',"All")
+local player = game:GetService("Players").LocalPlayer
+wait(2)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('Welcome to starworld v3, '.. player.Name,"All")
+wait(1)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('Type /cmds for cmds.',"All")
 wait(1)
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("ChatMakeSystemMessage",
