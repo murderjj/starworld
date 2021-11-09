@@ -50,13 +50,13 @@ plr.Chatted:connect(function(message)
         if v:IsA("Tool") and string.lower(v.Name) == "boombox" then v:FindFirstChildOfClass("RemoteEvent"):FireServer("PlaySong", ("0"):rep(zeros)..id, 1, 0, 0) end
     end
     
-    wait(.6)
+    wait(0.8)
     
     for _,v in pairs(plr.Character:GetChildren()) do
         if v:IsA("Tool") and string.lower(v.Name) == "boombox" then plr.Character.Humanoid:UnequipTools() end
     end
     
-    wait(.6)
+    wait(0.5)
     
     for _,v in pairs(plr.Backpack:GetChildren()) do
         if v:IsA("Tool") and string.lower(v.Name) == "boombox" then
